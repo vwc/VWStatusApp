@@ -29,6 +29,23 @@
 @pink:                  #c3325f;
 @purple:                #7a43b6;
 
+// Application specific colors
+// ---------------------------
+
+@vw:                    #2c292a;
+@vwGreenLight:          #e1f9e1;
+@vwGreen:               #a1bca6;
+@vwGreenDark:           #abbbb6;
+@vwGreenDarker:         #557360;
+@vwYellow:              #fdc633;
+@vwBlue:                #004a80;
+@vwBlueLight:           #6aaac0;
+@vwGreenAlt:            #8bc682;
+@vwGreenAltDark:        #438874;
+@vwOrange:              #ec6a1a;
+@vwPink:                #f2e2ce;
+@vwRed:                 #db4d4a;
+
 
 // Scaffolding
 // -------------------------
@@ -44,7 +61,7 @@
 
 // Typography
 // -------------------------
-@sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+@sansFontFamily:        "SofiaPro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
@@ -53,9 +70,10 @@
 @baseLineHeight:        20px;
 @altFontFamily:         @serifFontFamily;
 
-@headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
-@headingsFontWeight:    bold;    // instead of browser default, bold
+@headingsFontFamily:    "FamiliarPro", inherit; // empty to use BS default, @baseFontFamily
+@headingsFontWeight:    normal;    // instead of browser default, bold
 @headingsColor:         inherit; // empty to use BS default, @textColor
+
 
 // Tables
 // -------------------------
@@ -63,6 +81,7 @@
 @tableBackgroundAccent:             #f9f9f9; // for striping
 @tableBackgroundHover:              #f5f5f5; // for hover
 @tableBorder:                       #ddd; // table and cell border
+
 
 // Buttons
 // -------------------------
@@ -105,11 +124,12 @@
 @dropdownDividerBottom:         @white;
 
 @dropdownLinkColor:             @grayDark;
-@dropdownLinkColorHover:        @white;
-@dropdownLinkColorActive:       @dropdownLinkColor;
 
-@dropdownLinkBackgroundActive:  @linkColor;
+@dropdownLinkColorHover:        @white;
 @dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
+
+@dropdownLinkColorActive:       @dropdownLinkColor;
+@dropdownLinkBackgroundActive:  @linkColor;
 
 
 
@@ -143,7 +163,6 @@
 // -------------------------
 @hrBorder:                @grayLighter;
 
-
 // Horizontal forms & lists
 // -------------------------
 @horizontalComponentOffset:       180px;
@@ -158,13 +177,13 @@
 // -------------------------
 @navbarCollapseWidth:             979px;
 
-@navbarHeight:                    40px;
-@navbarBackgroundHighlight:       #ffffff;
+@navbarHeight:                    60px;
 @navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
+@navbarBackgroundHighlight:       #ffffff;
 @navbarBorder:                    darken(@navbarBackground, 12%);
 
-@navbarText:                      #777;
-@navbarLinkColor:                 #777;
+@navbarText:                      @gray;
+@navbarLinkColor:                 @gray;
 @navbarLinkColorHover:            @grayDark;
 @navbarLinkColorActive:           @gray;
 @navbarLinkBackgroundHover:       transparent;

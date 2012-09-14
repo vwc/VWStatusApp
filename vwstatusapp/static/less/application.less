@@ -1,0 +1,41 @@
+// Custom application specific styles
+//--------------------------------------
+
+
+body {
+    background:#ABBBB6;
+}
+
+.dotted {
+  background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpi/P//PwM2wMSAA9BagpGR0QkgwAC+uANOnTZyJwAAAABJRU5ErkJggg==);
+}
+
+// Example styles for a custom editbar override of the basic
+// twitter bootstarp navbar to make the edit bar look like a
+// browser toolbar
+body > header {
+    
+}
+
+.well {
+    background: lighten(@vwGreenDark, 10%);
+    .box-shadow(inset -1px 0px 10px rgba(0,0,0,.5));
+    font-size: @baseFontSize;
+    a {
+      color: @gray !important;
+      font-size: @baseFontSize;
+    }
+    h4 {
+      font-family: 'OswaldBook';
+    }
+    .nav-header {
+      color: @black;
+      font-size: @baseFontSize;
+    }
+  }
+
+.feedtext {
+  background: @white;
+  padding: @baseLineHeight;
+  .border-radius(4px);
+}

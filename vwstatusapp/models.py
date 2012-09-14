@@ -12,6 +12,7 @@ from sqlalchemy.orm import relationship
 from zope.sqlalchemy import ZopeTransactionExtension
 
 from pyramid.security import Authenticated
+from pyramid.security import Everyone
 from pyramid.security import Allow
 
 from cryptacular.bcrypt import BCRYPTPasswordManager
@@ -52,7 +53,8 @@ class Signal(Base):
 
 class RootFactory(object):
     __acl__ = [
-        (Allow, Authenticated, 'view')
+        (Allow, Everyone, 'view'),
+        (Allow, Authenticated, 'edit')
     ]
 
     def __init__(self, request):
