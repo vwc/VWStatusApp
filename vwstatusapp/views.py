@@ -66,15 +66,15 @@ def status_post(request):
     user = dbsession.query(User).filter_by(userid=userid).one()
     chirp = request.params.get('chirp')
     author = user
-    timestamp = datetime.utcnow()
+    timestamp = datetime.now()
     new_chirp = Signal(chirp, author, timestamp)
     dbsession.add(new_chirp)
     return HTTPFound(location='/status')
 
 
-@view_config(context='pyramid.httpexceptions.HTTPForbidden',
-             request_method='GET',
-             renderer='templates/login.pt')
+@view_config(route_name='signin',
+             permission='view',
+             renderer='templates/signin.pt')
 def login_page(request):
     login = ''
     message = ''
