@@ -1,4 +1,5 @@
 from datetime import datetime
+from datetime import timedelta
 
 from pyramid.httpexceptions import HTTPFound
 from pyramid.security import authenticated_userid
@@ -28,6 +29,25 @@ def signals_view(request):
     if userid:
         users.append(user.id)
     signals = dbsession.query(Signal)
+    results = []
+    for k in range(8):
+        start = datetime.now() - timedelta(k)
+        end = datetime.now() - timedelta(k - 1)
+        items = dbsession.query(Signal).filter(
+            Signal.timestamp >= start, Signal.timestamp <= end)
+        if len(items.all()) > 0:
+            sigs = items.all()
+            for sig in sigs:
+                item = {}
+                item['date'] = start
+                item['signal'] = sig.signal
+                item['timestamp'] = sig.timestamp
+        else:
+            item = {}
+            item['date'] = start
+            item['signal'] = 'All systems go!'
+            item['timestamp'] = start
+        results.append(item)
     ordered_signals = signals.order_by(Signal.timestamp.desc()).limit(30)
     return {'app_url': request.application_url,
             'static_url': request.static_url,
@@ -35,7 +55,8 @@ def signals_view(request):
             'user': user,
             'elapsed': get_elapsed,
             'user_chirps': False,
-            'signals': ordered_signals.all()}
+            'signals': ordered_signals.all(),
+            'results': results}
 
 
 @view_config(route_name='status',
