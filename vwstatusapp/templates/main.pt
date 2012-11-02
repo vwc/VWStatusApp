@@ -53,13 +53,15 @@
       </div>
     </section>
 
-
-
     <section class="container" id="main-content">
       <div id="feedlist">
         <div class="feeditem" tal:repeat="signal results">
-          <div class="posttime">
-               <h4>${elapsed(signal.timestamp)}</h4>
+          <div class="posttime"
+            tal:attributes="class string:posttime posttime-${signal.klass}">
+              <h4><span data-appui="timeago"
+                tal:attributes="title string:${signal.date}">${signal.date}</span>
+                <small>&ndash; ${signal.status}</small>
+          </h4>
           </div>
           <div class="feedtext">
             <blockquote class="chirp">

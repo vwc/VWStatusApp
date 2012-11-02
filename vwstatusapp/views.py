@@ -39,13 +39,17 @@ def signals_view(request):
             sigs = items.all()
             for sig in sigs:
                 item = {}
-                item['date'] = start
+                item['date'] = start.strftime("%d.%m.%Y")
+                item['status'] = 'Warnung!'
+                item['klass'] = 'warning'
                 item['signal'] = sig.signal
                 item['timestamp'] = sig.timestamp
         else:
             item = {}
-            item['date'] = start
-            item['signal'] = 'All systems go!'
+            item['date'] = start.strftime("%d.%m.%Y")
+            item['status'] = 'All systems go!'
+            item['klass'] = 'success'
+            item['signal'] = '24h Uptime'
             item['timestamp'] = start
         results.append(item)
     ordered_signals = signals.order_by(Signal.timestamp.desc()).limit(30)

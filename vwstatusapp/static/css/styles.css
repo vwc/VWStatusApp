@@ -5122,6 +5122,13 @@ body {
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
+#feedlist .posttime-success h4 {
+  background: #46a546;
+  color: #eeeeee;
+}
+#feedlist .posttime-success h4 small {
+  color: #ffffff;
+}
 .feedtext {
   background: #ffffff;
   padding: 20px;
