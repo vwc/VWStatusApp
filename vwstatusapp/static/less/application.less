@@ -20,12 +20,12 @@ body {
 }
 
 .splashbar {
-  background-color: @vwGreenDark;
+  background-color: @gray-lighter;
   .dotted();
-  color: @white;
-  border-bottom: 2px solid @black;
+  color: #fff;
+  border-bottom: 2px solid #000;
   .jumbotron {
-    margin: @baseLineHeight * 2 0;
+    margin: @line-height-base * 2 0;
     text-align: center;
     h1 {
       font-size: 60px;
@@ -82,48 +82,46 @@ body > header {
 }
 
 .well {
-    background: lighten(@vwGreenDark, 10%);
+    background: lighten(@gray-dark, 10%);
     .box-shadow(inset -1px 0px 10px rgba(0,0,0,.5));
-    font-size: @baseFontSize;
+    font-size: @font-size-base;
     a {
       color: @gray !important;
-      font-size: @baseFontSize;
+      font-size: @font-size-base;
     }
     h4 {
       font-family: 'OswaldBook';
     }
     .nav-header {
-      color: @black;
-      font-size: @baseFontSize;
+      color: #000;
+      font-size: @font-size-base;
     }
   }
 
 #main-content {
   .page-header h2 {
-    #font > #family > .serif();
+    //#font > #family > .serif();
   }
 }
 
 #feedlist {
-  padding-top: @baseLineHeight;
+  padding-top: @line-height-computed;
   h4 {
-    #font > #family > .serif();
-    padding: @paddingSmall;
-    background: @grayLighter;
-    border: 1px solid @grayLighter;
-    .border-radius(@baseBorderRadius);
+    padding: @padding-small-vertical;
+    background: @gray-lighter;
+    border: 1px solid @gray-lighter;
   }
   .posttime-success h4 {
-    background:@green;
-    color: @grayLighter;
+    background:@brand-success;
+    color: @gray-lighter;
     small {
-      color:@white;
+      color:#fff;
     }
   }
 }
 
 .feedtext {
-  background: @white;
-  padding: @baseLineHeight;
-  .border-radius(4px);
+  background: #fff;
+  padding: @line-height-computed;
+  border-radius: 4px;
 }
