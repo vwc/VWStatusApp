@@ -239,7 +239,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -4450,6 +4450,111 @@ a.list-group-item.active > .badge,
   font-weight: normal;
   font-style: normal;
 }
+body.section-workspace {
+  background: url(../img/bg-sand.png) repeat 0 0 #b8aa88;
+  padding-top: 50px;
+}
+.workspace-header {
+  background: #4581ab;
+  padding: 20px 0 87.5px;
+  color: #eeeeee;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+.workspace-header h1 {
+  font-size: 17.5px;
+}
+.workspace-header .nav-pills > li > a {
+  color: #eeeeee;
+}
+.workspace-body .workspace-window {
+  z-index: 1;
+  background: #eeeeee;
+  margin-top: -77.5px;
+  border: 0px solid #999999;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+.workspace-body .workspace-window .workspace-window-header {
+  background: #eeeeee;
+  border-bottom: 1px solid #999999;
+  padding: 20px;
+}
+.workspace-body .workspace-window .workspace-window-header h2 {
+  font-weight: 700;
+  margin: 0px;
+  color: #3e3f48;
+}
+.workspace-body .workspace-window .workspace-window-subheader {
+  background: #fff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+.workspace-body .workspace-window .workspace-window-body {
+  padding: 20px;
+  background: #fff;
+}
+.stats {
+  text-align: center;
+}
+.stats .stat {
+  background-color: #eeeeee;
+  color: #555555;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.stats .stat h2 {
+  font-weight: 1;
+}
+.stats .stat h6 {
+  margin-top: -10px;
+}
+.stats .warning,
+.stats .important {
+  background-color: #c05c5a;
+  color: #FFF;
+}
+.stats .success {
+  background-color: #607080;
+  color: #FFF;
+}
+.stats .danger {
+  background-color: #ed7669;
+  color: #FFF;
+}
+.stats .info {
+  background-color: #2a323f;
+  color: #FFF;
+}
+.stats .info2 {
+  background-color: #3e3f48;
+  color: #FFF;
+}
+.stats .primary {
+  background-color: #50a0b0;
+  color: #FFF;
+}
+.stats .purple {
+  background-color: #4581ab;
+  color: #FFF;
+}
+.stats .inverse {
+  background-color: #b8aa88;
+  color: #FFF;
+}
+.stats .plain {
+  background-color: #fff;
+  color: #4581ab;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Yanone Kaffeesatz', inherit;
+}
 .dotted {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpi/P//PwM2wMSAA9BagpGR0QkgwAC+uANOnTZyJwAAAABJRU5ErkJggg==);
 }
@@ -4484,31 +4589,11 @@ body {
   font-size: 21px;
   padding: 14px 24px;
 }
-/* Customize the navbar links to be fill the entire space of the .navbar */
-.navbar .navbar-inner {
-  padding: 0;
+body > header .navbar-brand {
+  max-width: 350px;
 }
-.navbar .nav {
-  margin: 0;
-}
-.navbar .nav li {
-  display: table-cell;
-  width: 1%;
-  float: none;
-}
-.navbar .nav li a {
-  font-weight: bold;
-  text-align: center;
-  border-left: 1px solid rgba(255, 255, 255, 0.75);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-}
-.navbar .nav li:first-child a {
-  border-left: 0;
-  border-radius: 3px 0 0 3px;
-}
-.navbar .nav li:last-child a {
-  border-right: 0;
-  border-radius: 0 3px 3px 0;
+body > header.navbar-app {
+  background: #3e3f48;
 }
 .well {
   background: #4d4d4d;

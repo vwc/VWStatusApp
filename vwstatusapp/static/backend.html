@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Template &middot; Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body class="section-workspace">
+
+    <header class="navbar navbar-inverse navbar-app navbar-fixed-top" id="header">
+        <div class="container">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">status.vorwaerts-werbung.de</a>
+          <div class="nav-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav pull-right">
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+    </header>
+
+    <section class="workspace">
+      <header class="workspace-header">
+        <div class="container">
+          <div class="row">
+            <div class="col col-lg-3">
+              <div class="stats">
+                <div class="stat plain">
+                  <h2>Status</h2>
+                  <h6>Vorwärts Werbung</h6>
+                </div>
+              </div>
+            </div>
+            <div class="col col-lg-9">
+              <ul class="nav nav-pills pull-right">
+                <li><a href="#">Action A</a></li>
+                <li><a href="#">Action B</a></li>
+                <li><a href="#">Action C</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="workspace-body">
+        <div class="container">
+          <div class="workspace-window">
+            <div class="workspace-window-header">
+              <h2>Workspace Body</h2>
+            </div>
+            <div class="workspace-window-subheader">
+              <h3>Info Workspace or context actions</h3>
+            </div>
+            <div class="workspace-window-body">
+              <p class="lead">
+                The actual content panel filled with context specific information
+              </p>
+              <p>These are the available application colors</p>
+              <div class="row stats">
+                <div class="col col-lg-3 stat">
+                  <h2>Application</h2>
+                  <h6>color code</h6>
+                </div>
+                <div class="col col-lg-3 stat success">
+                  <h2>Application</h2>
+                  <h6>color code</h6>
+                </div>
+                <div class="col col-lg-3 stat info2">
+                  <h2>Application</h2>
+                  <h6>color code</h6>
+                </div>
+                <div class="col col-lg-3 stat danger">
+                  <h2>Application</h2>
+                  <h6>color code</h6>
+                </div>
+              </div>
+              <div class="stats">
+                <div class="stat purple">
+                  <h2>Application</h2>
+                  <h6>color code</h6>
+                </div>
+              </div>
+              <p class="text-muted">
+                <strong>Note:</strong>
+                These colors should eventually be adjusted to be retina ready
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="main-content">
+
+    </section> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http:////cdnjs.cloudflare.com/ajax/libs/moment.js/1.7.2/moment.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery.timeago.js"></script>
+    <script src="js/jquery.timeago.de.js"></script>
+    <script type="text/javascript">
+    WebFontConfig = {
+      google: { families: [ 'Open+Sans:400,700:latin', 'Yanone+Kaffeesatz:400,700:latin' ] }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+// Workspace definitions
+// ---------------------
+
+@appOneDarkest:         #0d5d75;
+@appOneDarker:          #008297;
+@appOneDark:            #2891a4;
+@appOne:                #50a0b0;
+@appOneLight:           #70afbc;
+@appOneLighter:         #8bbdc7;
+
+@app-one:               #50a0b0;
+@app-two:               #b8aa88;
+
+@app-dark:              #607080;
+@app-darker:            #2A323F;
+@app-darkest:           #3e3f48;
+@app-blue:              #4581ab;
+
+
+body.section-workspace {
+    background:url(../img/bg-sand.png) repeat 0 0 #b8aa88;
+    padding-top: @navbar-height;
+}
+
+.workspace {
+}
+
+.workspace-header {
+    background:@app-blue;
+    padding: @line-height-computed 0 @navbar-height * 1.75;
+    color: @gray-lighter;
+    .box-shadow(0 2px 5px rgba(0,0,0,.25));
+    //text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+    h1 {
+        font-size: @font-size-base * 1.25;
+    }
+    .nav-pills > li > a {
+        color: @gray-lighter;
+    }
+}
+
+.workspace-body {
+   .workspace-window {
+        z-index: 1;
+        background: @gray-lighter;
+        margin-top: -@navbar-height * 1.55;
+        border: 0px solid @gray-light;
+        .box-shadow(0 2px 5px rgba(0,0,0,.25));
+        .workspace-window-header {
+            background: @gray-lighter;
+            border-bottom: 1px solid @gray-light;
+            padding: @line-height-computed;
+            h2 {
+                font-weight: 700;
+                margin: 0px;
+                color: @app-darkest;
+            }
+        }
+        .workspace-window-subheader {
+            background: #fff;
+            padding: @line-height-computed / 2 @line-height-computed;
+            border-bottom: 1px solid @gray-lighter;
+        }
+        .workspace-window-body {
+            padding: @line-height-computed;
+            background: #fff;
+        }
+   }
+}
+
+.stats {
+  text-align: center;
+  .stat {
+    background-color: #eeeeee;
+    color: #555555;
+    padding: 10px;
+    //border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+    h2 {
+      font-weight: 1;
+    }
+    h6 {
+      margin-top: -10px;
+    }
+  }
+  .warning,
+  .important {
+    background-color: lighten(@state-danger-text, 5%);
+    color: #FFF;
+  }
+  .success {
+    background-color: @app-dark;
+    color: #FFF;
+  }
+  .danger {
+    background-color: @app-coral;
+    color: #FFF;
+  }
+  .info {
+    background-color: @app-darker;
+    color: #FFF;
+  }
+  .info2 {
+    background-color: @app-darkest;
+    color: #FFF;
+  }
+  .primary {
+    background-color: @app-one;
+    color: #FFF;
+  }
+  .purple {
+    background-color: @app-blue;
+    color: #FFF;
+  }
+  .inverse {
+    background-color: @app-two;
+    color: #FFF;
+  }
+  .plain {
+    background-color: #fff;
+    color: @app-blue;
+  }
+}
