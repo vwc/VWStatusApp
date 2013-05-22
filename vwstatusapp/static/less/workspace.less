@@ -34,8 +34,15 @@ body.section-workspace {
     h1 {
         font-size: @font-size-base * 1.25;
     }
+    .stat {
+        .box-shadow(0 2px 5px darken(@app-blue, 10%));
+    }
     .nav-pills > li > a {
         color: @gray-lighter;
+        text-shadow: 0 1px 0 darken(@app-blue, 10%);
+    }
+    .nav-pills > li > a:hover {
+        color: @app-blue;
     }
 }
 
@@ -54,6 +61,7 @@ body.section-workspace {
                 font-weight: 700;
                 margin: 0px;
                 color: @app-darkest;
+                text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
             }
         }
         .workspace-window-subheader {
