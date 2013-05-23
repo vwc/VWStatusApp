@@ -10,7 +10,6 @@
     <!-- Le styles -->
     <link rel="shortcut icon" href="${request.static_url('vwstatusapp:static/favicon.ico')}" />
     <link rel="stylesheet" href="${request.static_url('vwstatusapp:static/css/styles.css')}" type="text/css" media="screen" charset="utf-8" />
-
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -88,24 +87,25 @@
               <h3>Vorw&auml;rts Werbung Server Status</h3>
             </div>
             <div class="workspace-window-body">
-              <div id="feedlist">
-                <div class="feeditem" tal:repeat="signal results">
-                  <div class="posttime"
-                    tal:attributes="class string:posttime posttime-${signal.klass}">
-                      <h4><span data-appui="timeago"
-                        tal:attributes="title string:${signal.date}">${signal.date}</span>
-                        <small>&ndash; ${signal.status}</small>
-                      </h4>
-                  </div>
-                  <div class="feedtext">
-                    <blockquote class="chirp">
-                      <p>${signal.signal}</p>
-                      <small data-appui="timeago"
-                        tal:attributes="title string:${signal.timestamp}">
-                        ${signal.timestamp}</small>
-                    </blockquote>
-                  </div>
+              <div class="row stats">
+                <div class="col col-lg-3 stat success">
+                  <h2>${signals.server}</h2>
+                  <h6>${signals.servername}</h6>
                 </div>
+                <div class="col col-lg-9">
+                  <table class="table table-condensed">
+                    <tbody>
+                      <tr tal:repeat="site python:signals.sites">
+                        <th>${site.title}</th>
+                        <td class="text-left">${site.url}</td>
+                        <td class="text-muted text-right">${site.port}</td>
+                        <td class="text-muted">${site.type}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div>
               </div>
             </div>
           </div>
@@ -116,11 +116,19 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.js"></script>
-    <script type="text/javascript" src="http://cdn.jquerytools.org/1.2.7/all/jquery.tools.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="${request.static_url('vwstatusapp:static/js/jquery.timeago.js')}"></script>
-    <script src="${request.static_url('vwstatusapp:static/js/jquery.timeago.de.js')}"></script>
-    <script src="${request.static_url('vwstatusapp:static/js/application.js')}"></script>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+
   </body>
 </html>

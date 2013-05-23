@@ -1,3 +1,5 @@
+import json
+import urllib2
 from datetime import datetime
 from datetime import timedelta
 
@@ -9,6 +11,9 @@ from pyramid.security import forget
 from pyramid.view import view_config
 from pyramid.view import forbidden_view_config
 
+from pyramid.exceptions import Forbidden
+
+from pyramid_persona.views import verify_login
 
 from vwstatusapp.models import DBSession
 from vwstatusapp.models import User
@@ -16,6 +21,9 @@ from vwstatusapp.models import Signal
 from vwstatusapp.models import check_login
 
 from repoze.timeago import get_elapsed
+
+
+KNOWN = set()
 
 
 @view_config(route_name='home',
@@ -63,12 +71,28 @@ def signals_view(request):
             'results': results}
 
 
-@view_config(route_name='status',
+@view_config(route_name='quo',
              permission='view',
-             renderer='templates/status.pt')
+             renderer='templates/quo.pt')
+def quo_view(request):
+    data = {}
+    url = 'http://sechszueins.vorwaerts-werbung.de/serverdetails.json'
+    response = urllib2.urlopen(url)
+    data = json.loads(response.read())
+    return {'app_url': request.application_url,
+            'static_url': request.static_url,
+            'signals': data}
+
+
+@view_config(route_name='status',
+             permission='edit',
+             renderer='templates/status.pt'
+             )
 def status_view(request):
     dbsession = DBSession()
     userid = authenticated_userid(request)
+    if userid is None:
+        raise Forbidden()
     user = dbsession.query(User).filter_by(userid=userid).first()
     signals = dbsession.query(Signal).filter(Signal.author_id == userid)
     signals = signals.order_by(Signal.timestamp.desc()).limit(30)
@@ -84,7 +108,8 @@ def status_view(request):
 @view_config(route_name='status',
              request_method='POST',
              permission='edit',
-             renderer='templates/status.pt')
+             renderer='templates/status.pt'
+             )
 def status_post(request):
     dbsession = DBSession()
     userid = authenticated_userid(request)
@@ -109,21 +134,16 @@ def login_page(request):
             'login': login}
 
 
-@view_config(context='pyramid.httpexceptions.HTTPForbidden',
-             request_method='POST',
-             renderer='templates/login.pt')
+@view_config(route_name='login', check_csrf=True, renderer='json')
 def login(request):
-    login = request.params['login']
-    password = request.params['password']
-    if check_login(login, password):
-        headers = remember(request, login)
-        return HTTPFound(location='/',
-                         headers=headers)
-    message = 'Failed login'
-    return {'app_url': request.application_url,
-            'static_url': request.static_url,
-            'message': message,
-            'login': login}
+    email = verify_login(request)
+    request.response.headers = remember(request, email)
+    if email not in KNOWN:
+        KNOWN.add(email)
+        print(email, 'just logged in for the first time')
+        return {'redirect': '/welcome'}
+    else:
+        return {'redirect': request.POST['came_from']}
 
 
 @view_config(route_name='logout')

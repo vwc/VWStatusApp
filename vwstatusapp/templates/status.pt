@@ -10,7 +10,9 @@
     <!-- Le styles -->
     <link rel="shortcut icon" href="${request.static_url('vwstatusapp:static/favicon.ico')}" />
     <link rel="stylesheet" href="${request.static_url('vwstatusapp:static/css/styles.css')}" type="text/css" media="screen" charset="utf-8" />
-
+      <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+      <script src="https://login.persona.org/include.js" type="text/javascript"></script>
+      <script type="text/javascript">${request.persona_js}</script>
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -46,7 +48,7 @@
       </div>
     </div>
 
-    <section class="container-fluid splashbar">
+    <section class="container splashbar">
       <div class="container">
         <header class="page-header">
           <h1>All systems go!</h1>
@@ -56,6 +58,10 @@
             <input type="submit" value="chirp" />
         </form>
       </div>
+    </section>
+
+    <section class="container">
+      <p>${request.persona_button}</p>
     </section>
 
     <section class="container">
