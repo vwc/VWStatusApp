@@ -5742,6 +5742,9 @@ body.section-workspace {
 }
 .workspace-header .nav-pills > li > a:hover {
   color: #4581ab;
+  text-shadow: none;
+  background: #fff;
+  border-radius: 0px;
 }
 .workspace-body .workspace-window {
   z-index: 1;
