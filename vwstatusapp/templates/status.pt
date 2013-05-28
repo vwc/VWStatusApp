@@ -26,90 +26,85 @@
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
   </head>
 
-  <body>
+  <body class="section-workspace">
 
-    <div class="navbar xnavbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+    <header class="navbar navbar-inverse navbar-app navbar-fixed-top" id="header">
+        <div class="xcontainer">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">status:vorwaerts-werbung.de</a>
-          <div class="nav-collapse collapse pull-right">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
+          </button>
+          <a class="navbar-brand" href="/"><i class="icon-signal"></i> :status</a>
+          <div class="nav-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav pull-right">
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
+              <li class="divider"></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
-      </div>
-    </div>
+    </header>
 
-    <section class="container splashbar">
-      <div class="container">
-        <header class="page-header">
-          <h1>All systems go!</h1>
-        </header>
-        <form action="${app_url}/status" method="POST">
-            <textarea name="chirp" id="chirp" rows="3" cols="60"></textarea>
-            <input type="submit" value="chirp" />
-        </form>
-      </div>
-    </section>
-
-    <section class="container">
-      <p>${request.persona_button}</p>
-    </section>
-
-    <section class="container">
-      <div class="row">
-        <div class="span8">
-          <header class="page-header">
-            <h2><small>Heute</small><br />
-              All systems go!
-            </h2>
-          </header>
-          <p class="lead">
-            All systems fully operational
-          </p>
-          <div id="feedlist">
-            <div class="feeditem" tal:repeat="signal signals">
-              <div class="thumbnail">
-                <a href="${app_url}/${signal.author.userid}" title="${signal.author.userid}">
-                  Poster
-                </a>
-              </div>
-              <div class="feedtext">
-                <div class="chirp">
-                  <em>${signal.signal}</em>
+    <section class="workspace">
+      <header class="workspace-header">
+        <div class="container">
+          <div class="row">
+            <div class="col col-lg-3">
+              <div class="stats">
+                <div class="stat plain">
+                  <h2>Status</h2>
+                  <h6>Vorwärts Werbung</h6>
                 </div>
               </div>
-              <div class="posttime">
-                   <abbr class="timeago">${elapsed(signal.timestamp)}</abbr>
-              </div>
+            </div>
+            <div class="col col-lg-9">
+              <ul class="nav nav-pills pull-right">
+                <li><a href="/status">Status</a></li>
+                <li><a href="/quo">Quo</a></li>
+                <li><a href="/ante">Ante</a></li>
+              </ul>
             </div>
           </div>
         </div>
-        <div class="span4">
-          <aside id="sidebar">
-            <div class="well">
-              <h3>What is this?</h3>
-              <p>This site shows the status of our server stack</p>
+      </header>
+      <div class="workspace-body">
+        <div class="container">
+          <div class="workspace-window">
+            <div class="workspace-window-header">
+              <h2>Status Quo Ante</h2>
             </div>
-          </aside>
+            <div class="workspace-window-subheader">
+              <h3>Vorw&auml;rts Werbung Server Status</h3>
+            </div>
+            <div class="workspace-window-body">
+              <p>Hello ${user} <br />
+              ${request.persona_button}</p>
+
+              <hr>
+                <form action="${app_url}/status" method="POST"
+                  class="form">
+                <textarea name="chirp" id="chirp" rows="3" cols="60"></textarea>
+                <input type="submit" value="chirp"
+                  class="btn btn-primary" />
+                </form>
+            </div>
+          </div>
         </div>
       </div>
-
-    </section> <!-- /container -->
-
-    <footer class="page-footer">
-      <div class="container">
-        <p>&copy; 2012 Vorw&auml;rts Werbung GbR</p>
-      </div>
-    </footer>
+    </section>
 
     <!-- Le javascript
     ================================================== -->

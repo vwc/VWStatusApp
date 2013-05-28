@@ -85,14 +85,14 @@ def quo_view(request):
 
 
 @view_config(route_name='status',
-             permission='edit',
+             permission='view',
              renderer='templates/status.pt'
              )
 def status_view(request):
     dbsession = DBSession()
     userid = authenticated_userid(request)
-    if userid is None:
-        raise Forbidden()
+    #if userid is None:
+    #    raise Forbidden()
     user = dbsession.query(User).filter_by(userid=userid).first()
     signals = dbsession.query(Signal).filter(Signal.author_id == userid)
     signals = signals.order_by(Signal.timestamp.desc()).limit(30)

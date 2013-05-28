@@ -24,88 +24,94 @@
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
   </head>
 
-  <body>
+  <body class="section-workspace">
 
-    <div class="navbar xnavbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+    <header class="navbar navbar-inverse navbar-app navbar-fixed-top" id="header">
+        <div class="xcontainer">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">status:vorwaerts-werbung.de</a>
-          <div class="nav-collapse collapse pull-right">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
+          </button>
+          <a class="navbar-brand" href="/"><i class="icon-signal"></i> :status</a>
+          <div class="nav-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav pull-right">
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
+              <li class="divider"></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
-      </div>
-    </div>
+    </header>
 
-    <section class="container-fluid splashbar">
-      <div class="container">
-        <header class="page-header">
-          <h1>All systems go!</h1>
-        </header>
-      </div>
-    </section>
-
-    <section class="container">
-      <div class="row">
-        <div class="span8">
-          <header class="page-header">
-            <h2>Login page
-            </h2>
-          </header>
-            <div class="alert alert-error">
-                <p>${message}</p>
+    <section class="workspace">
+      <header class="workspace-header">
+        <div class="container">
+          <div class="row">
+            <div class="col col-lg-3">
+              <div class="stats">
+                <div class="stat plain">
+                  <h2>Status</h2>
+                  <h6>Vorwärts Werbung</h6>
+                </div>
+              </div>
             </div>
-            <form action="${app_url}" method="POST">
-               Username: <input type="text" name="login" value="${login}" />
-               <br />
-               Password: <input type="password" name="password" value="" />
-               <br />
-               <input type="submit" value="login" />
-            </form>
-        </div>
-        <div class="span4">
-          <aside id="sidebar">
-            <div class="well">
-              <h3>What is this?</h3>
-              <p>This site shows the status of our server stack</p>
+            <div class="col col-lg-9">
+              <ul class="nav nav-pills pull-right">
+                <li><a href="/status">Status</a></li>
+                <li><a href="/quo">Quo</a></li>
+                <li><a href="/ante">Ante</a></li>
+              </ul>
             </div>
-          </aside>
+          </div>
+        </div>
+      </header>
+      <div class="workspace-body">
+        <div class="container">
+          <div class="workspace-window">
+            <div class="workspace-window-header">
+              <h2>Status Quo Ante
+                <small>Signin Form</small>
+              </h2>
+            </div>
+            <div class="workspace-window-subheader">
+              <h3>Please sign in</h3>
+            </div>
+            <div class="workspace-window-body">
+              <div class="alert alert-error">
+                  <p>${message}</p>
+              </div>
+              <form action="${app_url}" method="POST">
+                 Username: <input type="text" name="login" value="${login}" />
+                 <br />
+                 Password: <input type="password" name="password" value="" />
+                 <br />
+                 <input type="submit" value="login"
+                  class="btn btn-primary" />
+              </form>
+            </div>
+          </div>
         </div>
       </div>
-
     </section> <!-- /container -->
-
-    <footer class="page-footer">
-      <div class="container">
-        <p>&copy; 2012 Vorw&auml;rts Werbung GbR</p>
-      </div>
-    </footer>
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/bootstrap-transition.js"></script>
-    <script src="../assets/js/bootstrap-alert.js"></script>
-    <script src="../assets/js/bootstrap-modal.js"></script>
-    <script src="../assets/js/bootstrap-dropdown.js"></script>
-    <script src="../assets/js/bootstrap-scrollspy.js"></script>
-    <script src="../assets/js/bootstrap-tab.js"></script>
-    <script src="../assets/js/bootstrap-tooltip.js"></script>
-    <script src="../assets/js/bootstrap-popover.js"></script>
-    <script src="../assets/js/bootstrap-button.js"></script>
-    <script src="../assets/js/bootstrap-collapse.js"></script>
-    <script src="../assets/js/bootstrap-carousel.js"></script>
-    <script src="../assets/js/bootstrap-typeahead.js"></script>
-
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="${request.static_url('vwstatusapp:static/js/bootstrap.js')}"></script>
+    <script src="${request.static_url('vwstatusapp:static/js/application.js')}"></script>
   </body>
 </html>

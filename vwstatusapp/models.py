@@ -2,6 +2,7 @@ from sqlalchemy import Column
 from sqlalchemy import TIMESTAMP
 from sqlalchemy import Unicode
 from sqlalchemy import Integer
+from sqlalchemy import Text
 from sqlalchemy import ForeignKey
 
 from sqlalchemy.ext.declarative import declarative_base
@@ -35,6 +36,15 @@ class User(Base):
         self.password = crypt.encode(password)
         self.fullname = fullname
         self.about = about
+
+
+class Administrator(Base):
+    __tablename__ = 'admins'
+    id = Column(Integer, primary_key=True)
+    persona_email = Column(Text, index=True, unique=True)
+
+    def __init__(self, persona_email):
+        self.persona_email = persona_email
 
 
 class Signal(Base):
